@@ -1,48 +1,39 @@
-import os from "os";
-import { exec } from "child_process";
-import { promisify } from "util";
+"use client";
 
-// System monitoring code modified from Sam's course (https://www.picourse.dev/next-js) for use on a ThinkPad A485
-// Sam Meech-Ward's info: https://ko-fi.com/meechward
-// Thanks for the inspiration, Sam! - Fields
+import { useEffect, useState } from "react";
+export const dynamic = 'force-dynamic';
 
-const execAsync = promisify(exec);
+export default function Home() {
+    const [systemInfo, setSystemInfo] = useState({});
+    const [visitorCount, setVisitorCount] = useState(0);
 
-async function getCpuUsage() {
-  const { stdout } = await execAsync("top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}'");
-  return parseFloat(stdout.trim()).toFixed(1);
-}
+    useEffect(() => {
+        async function fetchSystemDetails() {
+            try {
+                const res = await fetch('/api/systemDetails');
+                if (!res.ok) throw new Error('Failed to fetch system details');
+                const details = await res.json();
+                setSystemInfo(details);
+            } catch (error) {
+                console.error(error);
+            }
+        }
 
-async function getCpuTemp() {
-    const { stdout } = await execAsync("sensors | grep 'Tctl' | awk '{print $2}'");
-    return parseFloat(stdout.replace("+", "").replace("°C", ""));
-}
+        async function fetchVisitorCount() {
+            try {
+                const res = await fetch('/api/visitorCount', { method: 'POST' });
+                if (!res.ok) throw new Error('Failed to fetch visitor count');
+                const data = await res.json();
+                setVisitorCount(data.count);
+            } catch (error) {
+                console.error(error);
+            }
+        }
 
-function bytesToGB(bytes) {
-    return (bytes / (1024 * 1024 * 1024)).toFixed(2);
-}
+        fetchSystemDetails();
+        fetchVisitorCount();
+    }, []);
 
-export async function getSystemDetails() {
-    const cpuUsage = getCpuUsage();
-    const totalMem = os.totalmem();
-    const freeMem = os.freemem();
-    const usedMem = totalMem - freeMem;
-    const cpuTemp = await getCpuTemp();
-
-    return {
-        cpuTemp,
-        cpuUsage,
-        memoryUsage: {
-            total: parseFloat(bytesToGB(totalMem)),
-            used: parseFloat(bytesToGB(usedMem)),
-            free: parseFloat(bytesToGB(freeMem)),
-        },
-    };
-}
-
-export default async function Home() {
-    const systemInfo = await getSystemDetails();
-    
     return (
         <div>
             <header>
@@ -56,7 +47,11 @@ export default async function Home() {
                 <i>MULE System Monitor</i>
                 <p>CPU Temp: {systemInfo.cpuTemp}°C</p>
                 <p>CPU Utilization: {systemInfo.cpuUsage}%</p>
-                <p>RAM: {systemInfo.memoryUsage.used}GB / {systemInfo.memoryUsage.total}GB</p>
+                <p>RAM: {systemInfo.memoryUsage?.used}GB / {systemInfo.memoryUsage?.total}GB</p>
+
+                <br />
+
+                <i>Visitor Count: {visitorCount}</i>
             </header>
         </div>
     );
