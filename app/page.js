@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Sidebar from "./components/sidebar";
+
 export const dynamic = 'force-dynamic';
 
 export default function Home() {
@@ -37,10 +39,7 @@ export default function Home() {
     return (
         <div style={{ display: "flex", height: "100vh" }}>
             {/* Sidebar */}
-            <div className="sidebar">
-                <a href="/">Home</a>
-                <a href="/portfolio">Portfolio</a>
-            </div>
+            <Sidebar systemInfo={systemInfo} visitorCount={visitorCount} />
 
             {/* Main Content */}
             <div className="main-content">
@@ -54,19 +53,6 @@ export default function Home() {
                     />
                     <p>this site is currently under construction. please check back weekly for new content! 🙇</p>
                     <p>- fields</p>
-
-                    <br />
-
-                    <i>MULE System Monitor</i>
-                    <p>CPU Temp: {systemInfo.cpuTemp}°C</p>
-                    <p>CPU Utilization: {systemInfo.cpuUsage}%</p>
-                    <p>
-                        RAM: {systemInfo.memoryUsage?.used}GB / {systemInfo.memoryUsage?.total}GB
-                    </p>
-
-                    <br />
-
-                    <i>Visitor Count: {visitorCount}</i>
                 </header>
             </div>
         </div>

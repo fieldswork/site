@@ -70,3 +70,23 @@ a:hover {
   flex: 1;
   padding: 20px;
 }
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 16px;
+  background-color: #171717; /* Adjust as needed */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-links {
+  margin-bottom: auto;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  font-size: 14px;
+  color: #fff8e7; /* Adjust as needed */
+}
