@@ -1,6 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Sidebar({ systemInfo, visitorCount }) {
+export default function Sidebar() {
+    const [systemInfo, setSystemInfo] = useState({});
+    const [visitorCount, setVisitorCount] = useState(0);
+
+    useEffect(() => {
+        async function fetchSystemDetails() {
+            try {
+                const res = await fetch('/api/systemDetails');
+                if (!res.ok) throw new Error('Failed to fetch system details');
+                const details = await res.json();
+                setSystemInfo(details);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function fetchVisitorCount() {
+            try {
+                const res = await fetch('/api/visitorCount', { method: 'POST' });
+                if (!res.ok) throw new Error('Failed to fetch visitor count');
+                const data = await res.json();
+                setVisitorCount(data.count);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchSystemDetails();
+        fetchVisitorCount();
+    }, []);
+
     return (
         <div className="sidebar">
             <div className="sidebar-links">
@@ -13,12 +43,12 @@ export default function Sidebar({ systemInfo, visitorCount }) {
                 <p>CPU Temp: <b>{systemInfo.cpuTemp}°C</b></p>
                 <p>CPU Utilization: <b>{systemInfo.cpuUsage}%</b></p>
                 <p>
-                    RAM: <b>{systemInfo.memoryUsage?.used}GB / {systemInfo.memoryUsage?.total}GB</b>
+                    RAM: <b>{systemInfo.memoryUsage?.used} / {systemInfo.memoryUsage?.total}GiB</b>
                 </p>
 
                 <br />
 
-                <b>Visitor Count: {visitorCount}</b>
+                <b>Page Hits: {visitorCount}</b>
             </div>
         </div>
     );
