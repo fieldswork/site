@@ -35,24 +35,40 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
-            <header>
-                <p>hello there! welcome to salmonline.us 🙂‍↕️</p>
-                <img src="website-under-construction-image-6.gif" alt="site_construction_sign_gif" width="400" height="400" />
-                <p>this site is currently under construction. please check back later for new content! 🙇</p>
-                <p>- fields</p>
+        <div style={{ display: "flex", height: "100vh" }}>
+            {/* Sidebar */}
+            <div className="sidebar">
+                <a href="/">Home</a>
+                <a href="/portfolio">Portfolio</a>
+            </div>
 
-                <br />
+            {/* Main Content */}
+            <div className="main-content">
+                <header>
+                    <p>hello there! welcome to salmonline.us 🙂‍↕️</p>
+                    <img
+                        src="website-under-construction-image-6.gif"
+                        alt="site_construction_sign_gif"
+                        width="400"
+                        height="400"
+                    />
+                    <p>this site is currently under construction. please check back weekly for new content! 🙇</p>
+                    <p>- fields</p>
 
-                <i>MULE System Monitor</i>
-                <p>CPU Temp: {systemInfo.cpuTemp}°C</p>
-                <p>CPU Utilization: {systemInfo.cpuUsage}%</p>
-                <p>RAM: {systemInfo.memoryUsage?.used}GB / {systemInfo.memoryUsage?.total}GB</p>
+                    <br />
 
-                <br />
+                    <i>MULE System Monitor</i>
+                    <p>CPU Temp: {systemInfo.cpuTemp}°C</p>
+                    <p>CPU Utilization: {systemInfo.cpuUsage}%</p>
+                    <p>
+                        RAM: {systemInfo.memoryUsage?.used}GB / {systemInfo.memoryUsage?.total}GB
+                    </p>
 
-                <i>Visitor Count: {visitorCount}</i>
-            </header>
+                    <br />
+
+                    <i>Visitor Count: {visitorCount}</i>
+                </header>
+            </div>
         </div>
     );
 }
