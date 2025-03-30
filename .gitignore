@@ -42,3 +42,6 @@ next-env.d.ts
 
 # other
 *.deb
+
+# excluding visitorCount.json
+!visitorCount.json
