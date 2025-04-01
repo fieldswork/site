@@ -49,36 +49,18 @@ a:hover {
 }
 
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 250px;
   background-color: var(--background);
-  padding: 20px;
+  padding: 16px;
   border-right: 2px solid var(--highlight);
-}
-
-.sidebar a {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--link);
-  font-weight: bold;
-}
-
-.sidebar a:hover {
-  color: var(--highlight);
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-}
-
-.sidebar {
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  padding: 16px;
-  background-color: #171717; /* Adjust as needed */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-links {
@@ -88,5 +70,5 @@ a:hover {
 .sidebar-bottom {
   margin-top: auto;
   font-size: 14px;
-  color: #fff8e7; /* Adjust as needed */
+  color: #fff8e7;
 }

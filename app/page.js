@@ -6,12 +6,12 @@ export const dynamic = 'force-dynamic';
 
 export default function Home() {
     return (
-        <div style={{ display: "flex", height: "100vh" }}>
+        <div style={{ display: "flex", height: "100vh"}}>
             {/* Sidebar */}
             <Sidebar />
 
             {/* Main Content */}
-            <div className="main-content">
+            <div className="main-content" style={{ marginLeft: "265px", marginTop: "15px" }}>
                 <header>
                     <p>Hello there! Welcome to <a href="https://salmonline.us" target="_blank" rel="noopener noreferrer">salmonline.us</a>!</p>
                     <img

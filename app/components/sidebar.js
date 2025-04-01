@@ -34,8 +34,8 @@ export default function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebar-links">
-                <a href="/">Home</a>
-                <a href="/portfolio">Portfolio</a>
+                <h3><a href="/">Home</a></h3>
+                <h3><a href="/portfolio">Portfolio</a></h3>
             </div>
 
             <div className="sidebar-bottom">
