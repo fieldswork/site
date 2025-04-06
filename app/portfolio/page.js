@@ -152,5 +152,5 @@ function Section({ title, children }) {
 }
 
 function SectionDivider() {
-    return <hr style={{ margin: "30px 0", border: "1.px solid #eb620e" }} />;
+    return <hr style={{ margin: "30px 0", border: "1px solid #eb620e" }} />;
 }
