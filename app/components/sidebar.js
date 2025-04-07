@@ -36,6 +36,7 @@ export default function Sidebar() {
             <div className="sidebar-links">
                 <h3><a href="/">Home</a></h3>
                 <h3><a href="/portfolio">Portfolio</a></h3>
+                <h3><a href="https://blog.salmonline.us/ebaEBfAopusWEy">Site Roadmap</a></h3>
             </div>
 
             <div className="sidebar-bottom">
