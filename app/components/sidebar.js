@@ -48,7 +48,9 @@ export default function Sidebar() {
 
                 <br />
 
-                <b>Page Hits: {visitorCount}</b>
+                <b title="Number of times the page has been loaded, including development tasks.">
+                    Page Hits: {visitorCount}
+                </b>
             </div>
         </div>
     );
