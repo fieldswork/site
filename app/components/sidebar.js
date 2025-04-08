@@ -46,9 +46,6 @@ export default function Sidebar() {
                 <p>
                     RAM: <b>{systemInfo.memoryUsage?.used} / {systemInfo.memoryUsage?.total}GiB</b>
                 </p>
-
-                <br />
-
                 <b title="Number of times the page has been loaded, including development tasks.">
                     Page Hits: {visitorCount}
                 </b>
