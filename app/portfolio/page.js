@@ -146,7 +146,7 @@ export default function Portfolio() {
                         <p style={{ marginTop: "10px" }}>
                             <b>Sudokuru Project Links:</b><br />
                             <a href="https://github.com/SudoKuru" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br />
-                            <a href="http://sudokuru.vercel.app" target="_blank" rel="noopener noreferrer">Sudokuru Site</a><br />
+                            <a href="https://sudokuru.vercel.app" target="_blank" rel="noopener noreferrer">Sudokuru Site</a><br />
                             <a href="https://sudokuru.itch.io/sudokuru" target="_blank" rel="noopener noreferrer">Sudokuru Mobile Application</a>
                         </p>
                     </section>

@@ -13,7 +13,7 @@ export default function Home() {
             {/* Main Content */}
             <div className="main-content" style={{ marginLeft: "265px", marginTop: "15px" }}>
                 <header>
-                    <p>Hello there! Welcome to <a href="https://salmonline.us" target="_blank" rel="noopener noreferrer">salmonline.us</a>!</p>
+                    <p>Hello there! Welcome to <a href="https://salmonline.us">salmonline.us</a>!</p>
                     <img
                         src="website-under-construction-image-6.gif"
                         alt="site_construction_sign_gif"
