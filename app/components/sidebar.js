@@ -44,9 +44,9 @@ export default function Sidebar({ onSidebarToggle }) {
             <button
                 className="sidebar-button"
                 onClick={toggleSidebar}
-                aria-label="Toggle Sidebar"
+                aria-label="Toggle sidebar"
             >
-                Menu
+                Directory
             </button>
 
             {/* Sidebar */}
