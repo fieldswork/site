@@ -11,7 +11,7 @@ export async function POST() {
     await fs.writeFile(filePath, JSON.stringify({ count }), 'utf8');
     return new Response(JSON.stringify({ count }), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'unable to read or write visitor count' }), { status: 500 });
+    return new Response(JSON.stringify({ error: 'Error sending page hit.' }), { status: 500 });
   }
 }
 
@@ -21,6 +21,6 @@ export async function GET() {
     let count = JSON.parse(data).count;
     return new Response(JSON.stringify({ count }), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'unable to read or write visitor count' }), { status: 500 });
+    return new Response(JSON.stringify({ error: 'Error getting visitor count.' }), { status: 500 });
   }
 }
