@@ -1,17 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import Sidebar from "./components/sidebar";
 
 export const dynamic = 'force-dynamic';
 
 export default function Home() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const handleSidebarToggle = (isOpen) => {
+        setIsSidebarOpen(isOpen);
+    };
+
     return (
-        <div style={{ display: "flex", height: "100vh"}}>
+        <div style={{ display: "flex", height: "100vh" }}>
             {/* Sidebar */}
-            <Sidebar />
+            <Sidebar onSidebarToggle={handleSidebarToggle} />
 
             {/* Main Content */}
-            <div className="main-content" style={{ marginLeft: "265px", marginTop: "15px" }}>
+            <div
+                className="main-content"
+                style={{
+                    marginLeft: isSidebarOpen ? "265px" : "0",
+                    transition: "margin-left 0.3s ease",
+                    width: "100%",
+                }}
+            >
                 <header>
                     <p>Hello there! Welcome to <a href="https://salmonline.us">salmonline.us</a>!</p>
                     <img

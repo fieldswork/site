@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,15 +32,21 @@ export default function Sidebar() {
         fetchVisitorCount();
     }, []);
 
+    const toggleSidebar = () => {
+        const newState = !isSidebarOpen;
+        setIsSidebarOpen(newState);
+        onSidebarToggle(newState); // send state change to parent
+    };
+
     return (
         <div>
-            {/* Hamburger button */}
+            {/* Sidebar button */}
             <button
-                className="hamburger"
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="sidebar-button"
+                onClick={toggleSidebar}
                 aria-label="Toggle Sidebar"
             >
-                ☰
+                Menu
             </button>
 
             {/* Sidebar */}

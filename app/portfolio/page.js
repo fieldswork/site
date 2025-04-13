@@ -1,20 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import Sidebar from "../components/sidebar";
 
 export default function Portfolio() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const handleSidebarToggle = (isOpen) => {
+        setIsSidebarOpen(isOpen);
+    };
+
     return (
         <div style={{ display: "flex", height: "100vh" }}>
-            {/* Sidebar */}
-            <Sidebar />
+            <Sidebar onSidebarToggle={handleSidebarToggle} />
 
             {/* Portfolio Content */}
             <div
                 className="main-content"
                 style={{
+                    marginLeft: isSidebarOpen ? "265px" : "0",
+                    transition: "margin-left 0.3s ease",
+                    width: "100%",
                     padding: "20px",
                     fontFamily: '"Courier New", monospace',
-                    marginLeft: "260px",
                     overflowY: "auto",
                 }}
             >
