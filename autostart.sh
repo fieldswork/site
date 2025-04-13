@@ -7,8 +7,8 @@ git fetch origin
 git pull
 
 # development build
-#npm run dev
+npm run dev
 
 # build and start server
-npm run build
-npm start
+#npm run build
+#npm start
