@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function Sidebar() {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         async function fetchSystemDetails() {
@@ -32,23 +33,35 @@ export default function Sidebar() {
     }, []);
 
     return (
-        <div className="sidebar">
-            <div className="sidebar-links">
-                <h3><a href="/">Home</a></h3>
-                <h3><a href="/portfolio">Portfolio</a></h3>
-                <h3><a href="https://blog.salmonline.us/ebaEBfAopusWEy">Site Roadmap</a></h3>
-            </div>
+        <div>
+            {/* Hamburger button */}
+            <button
+                className="hamburger"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                aria-label="Toggle Sidebar"
+            >
+                ☰
+            </button>
 
-            <div className="sidebar-bottom">
-                <b>MULE System Monitor</b>
-                <p>CPU Temp: <b>{systemInfo.cpuTemp}°C</b></p>
-                <p>CPU Utilization: <b>{systemInfo.cpuUsage}%</b></p>
-                <p>
-                    RAM: <b>{systemInfo.memoryUsage?.used} / {systemInfo.memoryUsage?.total}GiB</b>
-                </p>
-                <b title="Number of times the page has been loaded, including development tasks.">
-                    Page Hits: {visitorCount}
-                </b>
+            {/* Sidebar */}
+            <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
+                <div className="sidebar-links">
+                    <h3><a href="/">Home</a></h3>
+                    <h3><a href="/portfolio">Portfolio</a></h3>
+                    <h3><a href="https://blog.salmonline.us/ebaEBfAopusWEy">Site Roadmap</a></h3>
+                </div>
+
+                <div className="sidebar-bottom">
+                    <b>MULE System Monitor</b>
+                    <p>CPU Temp: <b>{systemInfo.cpuTemp}°C</b></p>
+                    <p>CPU Utilization: <b>{systemInfo.cpuUsage}%</b></p>
+                    <p>
+                        RAM: <b>{systemInfo.memoryUsage?.used} / {systemInfo.memoryUsage?.total}GiB</b>
+                    </p>
+                    <b title="Number of times the page has been loaded, including development tasks.">
+                        Page Hits: {visitorCount}
+                    </b>
+                </div>
             </div>
         </div>
     );
