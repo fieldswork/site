@@ -52,9 +52,9 @@ export default function Sidebar({ onSidebarToggle }) {
             {/* Sidebar */}
             <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
                 <div className="sidebar-links">
-                    <h3><a href="/">Home</a></h3>
-                    <h3><a href="/portfolio">Portfolio</a></h3>
-                    <h3><a href="https://blog.salmonline.us/ebaEBfAopusWEy">Site Roadmap</a></h3>
+                    <a href="/">Home</a><br/>
+                    <a href="/portfolio">Portfolio</a><br/>
+                    <a href="https://blog.salmonline.us/ebaEBfAopusWEy">Site Roadmap</a>
                 </div>
 
                 <div className="sidebar-bottom">

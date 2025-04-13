@@ -15,34 +15,34 @@ export default function Portfolio() {
             <Sidebar onSidebarToggle={handleSidebarToggle} />
 
             {/* Portfolio Content */}
-            <div
+            <div 
                 className="main-content"
                 style={{
                     marginLeft: isSidebarOpen ? "265px" : "0",
                     transition: "margin-left 0.3s ease",
                     width: "100%",
-                    padding: "20px",
+                    padding: "17px",
                     fontFamily: '"Courier New", monospace',
                     overflowY: "auto",
-                }}
-            >
-                <h2 style={{ marginBottom: "20px" }}>Portfolio</h2>
+                }}>
+
+                <h1><b>Portfolio</b></h1>
 
                 {/* Contact Info */}
                 <div style={{ marginBottom: "20px" }}>
                     <p>
                         <b>LinkedIn:</b>{" "}
                         <a href="https://www.linkedin.com/in/arthur-upfield/" target="_blank" rel="noopener noreferrer">
-                            Arthur Upfield
+                            <b>Arthur Upfield</b>
                         </a>
                         <br />
                         <b>GitHub: </b>{" "}
                         <a href="https://github.com/salmoncore" target="_blank" rel="noopener noreferrer">
-                            salmoncore
+                            <b>salmoncore</b>
                         </a>
                         <br />
                         <b>Email: </b>{" "}
-                        <a href="mailto:arthur@salmonline.us">arthur@salmonline.us</a>
+                        <a href="mailto:arthur@salmonline.us"><b>arthur@salmonline.us</b></a>
                     </p>
                 </div>
 
