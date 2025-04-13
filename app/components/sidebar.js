@@ -39,15 +39,16 @@ export default function Sidebar({ onSidebarToggle }) {
     };
 
     return (
-        <div>
-            {/* Sidebar button */}
-            <button
-                className="sidebar-button"
-                onClick={toggleSidebar}
-                aria-label="Toggle sidebar"
-            >
-                Directory
-            </button>
+        <>
+            <header className="header-bar">
+                <button
+                    className="sidebar-button"
+                    onClick={toggleSidebar}
+                    aria-label="Toggle sidebar"
+                >
+                    Directory
+                </button>
+            </header>
 
             {/* Sidebar */}
             <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
@@ -69,6 +70,6 @@ export default function Sidebar({ onSidebarToggle }) {
                     </b>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

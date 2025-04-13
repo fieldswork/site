@@ -29,7 +29,7 @@ export default function Home() {
                     overflowY: "auto",
                 }}>
 
-<SectionDivider />
+                <SectionDivider />
 
                 <p>Hello there! Welcome to <a href="https://salmonline.us">salmonline.us</a>!</p><br />
                 <img
