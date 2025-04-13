@@ -11,11 +11,11 @@ export default function Portfolio() {
     };
 
     return (
-        <div style={{ display: "flex", height: "100vh" }}>
+        <div style={{ display: "flex", height: "100%" }}>
             <Sidebar onSidebarToggle={handleSidebarToggle} />
 
             {/* Portfolio Content */}
-            <div 
+            <div
                 className="main-content"
                 style={{
                     marginLeft: isSidebarOpen ? "265px" : "0",

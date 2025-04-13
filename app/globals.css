@@ -19,7 +19,7 @@ body {
   flex-grow: 1;
   padding: 16px;
   overflow-wrap: break-word;
-  margin-top: 48px;
+  margin-top: 26px;
 }
 
 @media (max-width: 768px) {

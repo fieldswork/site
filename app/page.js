@@ -13,7 +13,7 @@ export default function Home() {
     };
 
     return (
-        <div style={{ display: "flex", height: "100vh" }}>
+        <div style={{ display: "flex", height: "100%" }}>
             {/* Sidebar */}
             <Sidebar onSidebarToggle={handleSidebarToggle} />
 
