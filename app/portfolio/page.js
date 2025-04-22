@@ -97,6 +97,7 @@ export default function Portfolio() {
                         <li>React</li>
                         <li>JavaScript</li>
                         <li>Jenkins</li>
+                        <li>PostgreSQL</li>
                         <li>Agile Methodologies</li>
                     </ul>
 
