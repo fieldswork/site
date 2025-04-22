@@ -147,7 +147,7 @@ export default function Portfolio() {
                         <ul style={{ paddingLeft: "20px", marginTop: "10px" }}>
                             <li>Utilized JavaScript, TypeScript, Node.js, and the React framework, leveraging Expo for cross-platform functionality and Storybook UI frameworks.</li>
                             <li>Primarily responsible for the modular Sudoku board component, delivering a visually interesting and accessibility-focused user experience across web and Android platforms.</li>
-                            <li>Contributed to front-end navigation architecture, implementation of React state management techniques, and configuration for Docker, API, and “Backend-For-Frontend.”</li>
+                            <li>Contributed to front-end navigation architecture, implementation of React state management techniques, and configuration for Docker, API, and “Backend-For-Frontend”.</li>
                             <li>Collaborated within a 6-person group using Git, Discord, Jira, GitHub Issues, and TeamGantt for version control, issue tracking, deadline monitoring, and sharing resources.</li>
                         </ul>
 
