@@ -128,7 +128,7 @@ export default function Portfolio() {
                             <li>Utilized C#’s object-oriented features for development.</li>
                             <li>Designed player movement, game flow, and collision handling.</li>
                             <li>Built AI for enemies using state machines and raycast-based sight cones.</li>
-                            <li>Designed and constructed levels, including tutorial, “Canyon,” and “Lone Star.”</li>
+                            <li>Designed and constructed levels, including tutorial, “Canyon,” and “Lone Star”.</li>
                             <li>Led a 4-person group using Git, Discord, Trello, and Google Drive.</li>
                             <li>Received the class’s Best Game Design award.</li>
                         </ul>
