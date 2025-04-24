@@ -10,15 +10,16 @@ export default function Portfolio() {
         setIsSidebarOpen(isOpen);
     };
 
+    
+
     return (
-        <div style={{ display: "flex", height: "100%" }}>
+        <div style={{ display: "flex", height: "100%", maxWidth: "800px", margin: "auto" }}>
             <Sidebar onSidebarToggle={handleSidebarToggle} />
 
             {/* Portfolio Content */}
             <div
                 className="main-content"
                 style={{
-                    marginLeft: isSidebarOpen ? "265px" : "0",
                     transition: "margin-left 0.3s ease",
                     width: "100%",
                     padding: "17px",

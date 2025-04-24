@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [width, setWidth] = React.useState(window.innerWidth);
 
     useEffect(() => {
         async function fetchSystemDetails() {
@@ -28,14 +29,23 @@ export default function Sidebar({ onSidebarToggle }) {
             }
         }
 
+        const handleResizeWindow = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResizeWindow);
+
         fetchSystemDetails();
         fetchVisitorCount();
+
+        return () => {
+            window.removeElementListener("resize", handleResizeWindow);
+        }
     }, []);
 
     const toggleSidebar = () => {
-        const newState = !isSidebarOpen;
-        setIsSidebarOpen(newState);
-        onSidebarToggle(newState); // send state change to parent
+        if (width < 1300) {
+            const newState = !isSidebarOpen;
+            setIsSidebarOpen(newState);
+            onSidebarToggle(newState);
+        }
     };
 
     return (
@@ -51,7 +61,7 @@ export default function Sidebar({ onSidebarToggle }) {
             </header>
 
             {/* Sidebar */}
-            <div className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
+            <div className={`sidebar ${isSidebarOpen && (width < 1300) ? "closed" : "open"}`}>
                 <div className="sidebar-links">
                     <a href="/">Home</a><br />
                     <a href="/portfolio">Portfolio</a>
@@ -72,3 +82,5 @@ export default function Sidebar({ onSidebarToggle }) {
         </>
     );
 }
+
+//<p>width: <b>{width}px</b></p>
