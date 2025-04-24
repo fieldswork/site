@@ -10,8 +10,6 @@ export default function Portfolio() {
         setIsSidebarOpen(isOpen);
     };
 
-    
-
     return (
         <div style={{ display: "flex", height: "100%", maxWidth: "800px", margin: "auto" }}>
             <Sidebar onSidebarToggle={handleSidebarToggle} />

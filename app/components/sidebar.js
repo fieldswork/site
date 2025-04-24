@@ -4,7 +4,20 @@ export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [width, setWidth] = React.useState(window.innerWidth);
+    const [width, setWidth] = useState(0);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setWidth(window.innerWidth);
+
+            const handleResizeWindow = () => setWidth(window.innerWidth);
+            window.addEventListener("resize", handleResizeWindow);
+
+            return () => {
+                window.removeEventListener("resize", handleResizeWindow);
+            };
+        }
+    }, []);
 
     useEffect(() => {
         async function fetchSystemDetails() {
@@ -29,15 +42,8 @@ export default function Sidebar({ onSidebarToggle }) {
             }
         }
 
-        const handleResizeWindow = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResizeWindow);
-
         fetchSystemDetails();
         fetchVisitorCount();
-
-        return () => {
-            window.removeElementListener("resize", handleResizeWindow);
-        }
     }, []);
 
     const toggleSidebar = () => {
@@ -82,5 +88,3 @@ export default function Sidebar({ onSidebarToggle }) {
         </>
     );
 }
-
-//<p>width: <b>{width}px</b></p>
