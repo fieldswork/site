@@ -4,18 +4,19 @@ export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [hasMounted, setHasMounted] = useState(false);
     const [width, setWidth] = useState(0);
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setWidth(window.innerWidth);
-
-            const handleResizeWindow = () => setWidth(window.innerWidth);
-            window.addEventListener("resize", handleResizeWindow);
-
-            return () => {
-                window.removeEventListener("resize", handleResizeWindow);
-            };
+            const handleResize = () => setWidth(window.innerWidth);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
         }
     }, []);
 
@@ -54,6 +55,8 @@ export default function Sidebar({ onSidebarToggle }) {
         }
     };
 
+    const sidebarStateClass = !hasMounted ? "open" : (isSidebarOpen && width < 1300 ? "closed" : "open");
+
     return (
         <>
             <header className="header-bar">
@@ -67,7 +70,7 @@ export default function Sidebar({ onSidebarToggle }) {
             </header>
 
             {/* Sidebar */}
-            <div className={`sidebar ${isSidebarOpen && (width < 1300) ? "closed" : "open"}`}>
+            <div className={`sidebar ${sidebarStateClass} ${hasMounted ? "transition" : ""}`}>
                 <div className="sidebar-links">
                     <a href="/">Home</a><br />
                     <a href="/portfolio">Portfolio</a>

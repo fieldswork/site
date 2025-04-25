@@ -116,7 +116,6 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   padding-top: 48px;
-  transition: transform 0.3s ease;
 }
 
 .sidebar-bottom {
@@ -145,6 +144,10 @@ h3 {
 .sidebar.open {
   transform: translateX(0);
   border-right: 2px solid var(--highlight);
+}
+
+.sidebar.transition {
+  transition: transform 0.3s ease;
 }
 
 .header-bar {
