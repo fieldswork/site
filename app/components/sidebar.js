@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import getPageMounted from "../utils/getPageMounted.js";
+import getWindowDimensions from "../utils/getWindowDimensions.js";
 
 export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [hasMounted, setHasMounted] = useState(false);
-    const [width, setWidth] = useState(0);
-
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setWidth(window.innerWidth);
-            const handleResize = () => setWidth(window.innerWidth);
-            window.addEventListener("resize", handleResize);
-            return () => window.removeEventListener("resize", handleResize);
-        }
-    }, []);
+    const { height, width } = getWindowDimensions();
+    const isMounted = getPageMounted();
 
     useEffect(() => {
         async function fetchSystemDetails() {
@@ -55,7 +44,7 @@ export default function Sidebar({ onSidebarToggle }) {
         }
     };
 
-    const sidebarStateClass = !hasMounted ? "open" : (isSidebarOpen && width < 1300 ? "closed" : "open");
+    const sidebarStateClass = !isMounted ? "open" : (isSidebarOpen && width < 1300 ? "closed" : "open");
 
     return (
         <>
@@ -70,7 +59,7 @@ export default function Sidebar({ onSidebarToggle }) {
             </header>
 
             {/* Sidebar */}
-            <div className={`sidebar ${sidebarStateClass} ${hasMounted ? "transition" : ""}`}>
+            <div className={`sidebar ${sidebarStateClass} ${isMounted ? "transition" : ""}`}>
                 <div className="sidebar-links">
                     <a href="/">Home</a><br />
                     <a href="/portfolio">Portfolio</a>
@@ -91,3 +80,5 @@ export default function Sidebar({ onSidebarToggle }) {
         </>
     );
 }
+
+//<p>Width: <b>{width}</b> | Height: <b>{height}</b></p>
