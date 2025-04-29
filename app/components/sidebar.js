@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import getPageMounted from "../utils/getPageMounted.js";
-import getWindowDimensions from "../utils/getWindowDimensions.js";
+import useWindowSize from "../utils/useWindowSize.js";
 
 export default function Sidebar({ onSidebarToggle }) {
     const [systemInfo, setSystemInfo] = useState({});
     const [visitorCount, setVisitorCount] = useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const { height, width } = getWindowDimensions();
+    const { width } = useWindowSize();
     const isMounted = getPageMounted();
 
     useEffect(() => {
