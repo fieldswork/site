@@ -2,9 +2,8 @@
 
 cd ~/site
 
-# update from repo
-git fetch origin
-git pull
+# install node packages
+npm install
 
 # development build
 #npm run dev
