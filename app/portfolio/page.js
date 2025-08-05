@@ -36,8 +36,8 @@ export default function Portfolio() {
                         </a>
                         <br />
                         <b>GitHub: </b>{" "}
-                        <a href="https://github.com/salmoncore" target="_blank" rel="noopener noreferrer">
-                            <b>salmoncore</b>
+                        <a href="https://github.com/fieldswork" target="_blank" rel="noopener noreferrer">
+                            <b>fieldswork</b>
                         </a>
                         <br />
                         <b>Email: </b>{" "}
