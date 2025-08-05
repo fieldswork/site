@@ -102,7 +102,7 @@ export default function Portfolio() {
 
                     <p style={{ marginTop: "10px" }}>
                         <b>InventoryMan Project:</b><br />
-                        <a href="https://github.com/salmoncore/InventoryMan" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br />
+                        <a href="https://github.com/fieldswork/InventoryMan" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br />
                         <a href="https://sonarcloud.io/project/overview?id=salmoncore_InventoryMan" target="_blank" rel="noopener noreferrer">SonarQube Analysis</a>
                     </p>
                 </Section>
@@ -135,7 +135,7 @@ export default function Portfolio() {
 
                         <p style={{ marginTop: "10px" }}>
                             <b>Lasso Project Links:</b><br />
-                            <a href="https://github.com/salmoncore/Lasso" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br />
+                            <a href="https://github.com/fieldswork/Lasso" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br />
                             <a href="https://salmoncore.itch.io/lasso" target="_blank" rel="noopener noreferrer">Lasso itch.io Site</a><br />
                             <a href="https://youtu.be/ott2DcjtEjs?si=K-5IrCzJEYXp0ZE1&t=17410" target="_blank" rel="noopener noreferrer">Gameplay Stream</a>
                         </p>
@@ -173,7 +173,7 @@ export default function Portfolio() {
 
                     <p style={{ marginTop: "10px" }}>
                         <b>VEX Robotics Links:</b><br />
-                        <a href="https://github.com/salmoncore/vex_robotics" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                        <a href="https://github.com/fieldswork/vex_robotics" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
                     </p>
                 </Section>
             </div>
