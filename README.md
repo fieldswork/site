@@ -1,1 +1,1 @@
-*Site is under construction. Check back later for new content!*
+Site is under construction. Check back later for new content!
