@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">scroll me!</p>
+
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid grey" display="inline"></canvas>
+
+<script>
+let scrolly = 0;
+
+document.addEventListener("wheel", function (event) {
+	scrolly = event.deltaY;
+    
+	document.getElementById("demo").innerHTML =
+    "scroll: " + scrolly;
+    
+    const c = document.getElementById("myCanvas");
+    const ctx = c.getContext("2d");
+
+	ctx.clearRect(0, 0, c.width, c.height);
+    ctx.beginPath();
+    ctx.rotate(((scrolly/100) * Math.PI) / 180);
+    ctx.rect(50, 50, 100, 100);
+    ctx.stroke();
+});
+
+</script>
+
+</body>
+</html>
