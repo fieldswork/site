@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
 <body>
-
-<p id="demo">scroll me!</p>
-
-<canvas id="myCanvas" width="300" height="300" style="border:1px solid grey" display="inline"></canvas>
-
-<script>
-let scrolly = 0;
-
-// https://www.w3schools.com/js//js_events_mouse.asp
-document.addEventListener("wheel", function (event) {
-	scrolly = event.deltaY;
+    <!-- Attributed to https://www.flaticon.com/free-icon/pinwheel_5435930 -->
+    <img id="pinwheel-head" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5435%2F5435930.png&f=1&nofb=1&ipt=3df9ef430b3063e9766d658e0396fb889dd6fc01d5f4a4fce0c450ab72d5d88c">
     
-	document.getElementById("demo").innerHTML =
-    "scroll: " + scrolly;
-    
-    const c = document.getElementById("myCanvas");
-    const ctx = c.getContext("2d");
+    <p>scroll me!</p>
 
-	ctx.clearRect(0, 0, c.width, c.height);
-    ctx.beginPath();
-    ctx.rotate(((scrolly/100) * Math.PI) / 180);
-    ctx.rect(50, 50, 100, 100);
-    ctx.stroke();
-});
+    <script>
+        let scrolly = 0;
 
-</script>
+        // https://www.w3schools.com/js//js_events_mouse.asp
+        document.addEventListener("wheel", function (event) {
+            scrolly += event.deltaY;
+            // https://dev.to/foundsiders/frontend-shorts-easily-rotate-the-element-on-scroll-with-javascript-1g4p
+            document.getElementById("pinwheel-head").style.transform = "rotate(" + scrolly / 15 + "deg)";
+        });
 
+    </script>
 </body>
+
 </html>
