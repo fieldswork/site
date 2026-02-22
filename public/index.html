@@ -20,21 +20,18 @@
                 height="400" />
             <p>This site is currently under construction. Please check back later for new content!</p>
             <p>- Fields</p>
-            <p style="text-align: center;">
+            <p>
                 <a href="https://bsky.app/profile/fieldswork.neocities.org">Bluesky</a> |
                 <a href="https://wetdry.world/@fieldswork">Mastodon</a> |
                 <a href="https://github.com/fieldswork">GitHub</a>
             </p>
         </div>
         <div class="right">
-            <bsky-embed style="font-family: 'Courier New', Courier, monospace; " username="fieldswork.neocities.org"
-                mode="dark" limit="3" load-more="false" disable-styles="false"
-                custom-styles=".border-slate-300 { border-color: rgba(255, 248, 231, 0.08); }" disable-images="false"
-                disable-videos="false" disable-autoplay="true">
-            </bsky-embed>
+            <a class="mastodon-feed" href="https://wetdry.world/@fieldswork" data-toot-account-id="114893094116776814"
+                data-toot-limit="5" data-exclude-reblogs="true" data-exclude-replies="false">Fedi Posts!</a>
         </div>
     </div>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+    <script type="module" src="https://esm.sh/emfed@1"></script>
 </body>
 
 </html>
